@@ -72,7 +72,10 @@ func interceptHtlc(cliCtx *cli.Context) error {
 		htlc lndclient.InterceptedHtlc) (
 		*lndclient.InterceptedHtlcResponse, error) {
 
-		log.Printf("Intercepted htlc: %#v", htlc)
+		log.Printf("Intercepted htlc")
+		log.Printf("OutgoingChanId: %v, AmountIn: %v, AmountOut: %v",
+			htlc.OutgoingChannelID, htlc.AmountInMsat,
+			htlc.AmountOutMsat)
 
 		<-ctx.Done()
 
