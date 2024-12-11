@@ -51,6 +51,9 @@ func interceptHtlc(cliCtx *cli.Context) error {
 	switch cliCtx.String("network") {
 	case "mainnet":
 		network = lndclient.NetworkMainnet
+
+	case "regtest":
+		network = lndclient.NetworkRegtest
 	}
 
 	lndServices, err := lndclient.NewLndServices(
